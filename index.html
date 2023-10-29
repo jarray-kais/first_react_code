@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root">
+
+    </div>
+<script type="text/babel">
+    class  Home extends React.Component{
+        constructor(props){
+            super(props)
+            this.multiple = this.multiple.bind(this)
+        }
+        state = {
+            profile : {
+                    fullname : "jarray kais",
+                    age: 29,
+                    },
+            x : 0,
+            website : "erertgt.com"
+            }
+            increment(){
+                this.setState({
+                    x : this.state.x +1
+                })
+            }
+                decrement=()=>{
+                    this.setState({
+                        x : this.state.x -1
+                    })
+                }
+                multiple(){
+                    this.setState({
+                        x : this.state.x *2
+                    })
+                }
+        render(){
+        return (<div>
+            <p>{this.state.x}</p>
+            <button onClick={this.increment.bind(this)}> incremant</button> <br/>
+            <button onClick={this.decrement}> decrement</button> <br/>
+            <button onClick={this.multiple}> multiple</button> <br/>
+
+        </div>)
+        }
+    }
+
+    ReactDOM.render(<Home /> , document.getElementById("root"))
+</script>
+</body>
+</html>
