@@ -9,9 +9,7 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body>
-    <div id="root">
-
-    </div>
+    <div id="root"></div>
 <script type="text/babel">
     class  Home extends React.Component{
         constructor(props){
@@ -20,19 +18,64 @@
         }
         state = {
             profile : {
-                    fullname : "jarray kais",
+                    firstname : "jarray",
+                    lastname : "kais",
                     age: 29,
+                    country : "tunisia"
                     },
             x : 0,
-            website : "erertgt.com"
+            website : "google.com"
+            }
+            changeName=(e)=>{
+                this.setState({
+                    profile : {
+                        ...this.state.profile,
+                        firstname : e.target.value,
+                    },
+                })
+            }
+            increment=()=>{
+                this.setState({
+                    x : this.state.x +1,
+                })
+            }
+            decrement(){
+                this.setState({
+                    x : this.state.x -1,
+                })
+            }
+            multiple(){
+                this.setState({
+                    x : this.state.x *2,
+                })
             }
         render(){
         return (<div>
+                    <p>{this.state.profile.firstname}</p>
+                    <p>{this.state.profile.lastname}</p>
+                    <p>{this.state.profile.age}</p>
+                    <input type="text" onChange={this.changeName}/>
+                    
+                    <Contact data = {this.state}/>
+                    <button onClick={this.increment}>increment</button>
+                    <button onClick={this.decrement.bind(this)}>decrement</button>
+                    <button onClick={this.multiple}>multiple</button>
 
-        </div>)
+                </div>)
         }
     }
-
+    class Contact extends React.Component{
+       
+        render(){
+            return(
+                <div>
+                    <p>{this.props.data.website}</p>
+                    <p>{this.props.data.x}</p>
+                    
+                </div>
+            )
+        }
+    }
     ReactDOM.render(<Home /> , document.getElementById("root"))
 </script>
 </body>
