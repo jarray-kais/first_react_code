@@ -26,27 +26,8 @@
             x : 0,
             website : "erertgt.com"
             }
-            increment(){
-                this.setState({
-                    x : this.state.x +1
-                })
-            }
-                decrement=()=>{
-                    this.setState({
-                        x : this.state.x -1
-                    })
-                }
-                multiple(){
-                    this.setState({
-                        x : this.state.x *2
-                    })
-                }
         render(){
         return (<div>
-            <p>{this.state.x}</p>
-            <button onClick={this.increment.bind(this)}> incremant</button> <br/>
-            <button onClick={this.decrement}> decrement</button> <br/>
-            <button onClick={this.multiple}> multiple</button> <br/>
 
         </div>)
         }
